@@ -2,7 +2,6 @@ package com.jwatgroupb.config;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.gson.JsonObject;
 import com.restfb.DefaultFacebookClient;
 import com.restfb.FacebookClient;
 import com.restfb.Parameter;
@@ -35,7 +34,6 @@ public class LoginFB {
     }
     public String getUserInfomore(final String accessToken) {
         FacebookClient facebookClient = new DefaultFacebookClient(accessToken, FACEBOOK_APP_SECRET, Version.LATEST);
-        JsonObject a= facebookClient.fetchObjects(Arrays.asList("me", "1382679095266585"), JsonObject.class, Parameter.with("fields","name,id,email,picture"));
-        return a.toString();
+        return facebookClient.fetchObjects(Arrays.asList("me", "1382679095266585"), String.class, Parameter.with("fields","name,id,email,picture"));
     }
 }
