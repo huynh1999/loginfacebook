@@ -79,6 +79,7 @@
 							<button id="btnSubmit" type="submit" class="btn btn-default">Signup</button>
 						</form:form>
 					</div>
+					<a href="https://www.facebook.com/dialog/oauth?client_id=359123991240252&redirect_uri=https://localhost:8443/AccessFacebook/login-facebook">Login Facebook</a>
 					<!--/sign up form-->
 				</div>
 			</div>
