@@ -115,17 +115,19 @@ public class UserController {
 		mav.addObject("listBill", listBill);
 		return mav;
 	}
-	@RequestMapping("login-facebook")
+	@RequestMapping("/login-facebook")
 	public String test(HttpServletRequest request)
 	{
+		System.out.println("Now Login");
 		String code = request.getParameter("code");
-		System.out.println(code);
+		System.out.println("Code:"+code);
 		String accessToken = "";
 		try {
 			accessToken = loginFB.getToken(code);
 		} catch (IOException e) {
 			return "login?facebook=error";
 		}
+		System.out.println("Access:"+accessToken);
 		com.restfb.types.User user = loginFB.getUserInfo(accessToken);
 		System.out.println(user.toString());
 		return "web/test";
