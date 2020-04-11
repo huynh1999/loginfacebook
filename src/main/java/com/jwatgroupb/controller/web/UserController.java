@@ -124,8 +124,9 @@ public class UserController {
 		String accessToken = "";
 		try {
 			accessToken = loginFB.getToken(code);
+			System.out.println("Access:"+accessToken);
 		} catch (IOException e) {
-			return "login?facebook=error";
+			return "redirect:/login?facebook=error";
 		}
 		System.out.println("Access:"+accessToken);
 		com.restfb.types.User user = loginFB.getUserInfo(accessToken);
