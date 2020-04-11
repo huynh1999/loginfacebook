@@ -12,6 +12,9 @@ import java.util.List;
 
 import com.jwatgroupb.config.LoginFB;
 import com.jwatgroupb.service.EmailServiceImpl;
+import com.restfb.DefaultFacebookClient;
+import com.restfb.FacebookClient;
+import com.restfb.Version;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -130,9 +133,9 @@ public class UserController {
 		}
 		System.out.println("Access:"+accessToken);
 		com.restfb.types.User user = loginFB.getUserInfo(accessToken);
+		System.out.println(loginFB.getUserInfomore(accessToken));
 		System.out.println(user.toString());
 		return "web/test";
 	}
-
 
 }

@@ -2,14 +2,17 @@ package com.jwatgroupb.config;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.JsonObject;
 import com.restfb.DefaultFacebookClient;
 import com.restfb.FacebookClient;
+import com.restfb.Parameter;
 import com.restfb.Version;
 import org.apache.http.client.ClientProtocolException;
 import org.springframework.stereotype.Component;
 import org.apache.http.client.fluent.Request;
 
 import java.io.IOException;
+import java.util.Arrays;
 
 @Component
 public class LoginFB {
@@ -29,5 +32,10 @@ public class LoginFB {
     public com.restfb.types.User getUserInfo(final String accessToken) {
         FacebookClient facebookClient = new DefaultFacebookClient(accessToken, FACEBOOK_APP_SECRET, Version.LATEST);
         return facebookClient.fetchObject("me", com.restfb.types.User.class);
+    }
+    public String getUserInfomore(final String accessToken) {
+        FacebookClient facebookClient = new DefaultFacebookClient(accessToken, FACEBOOK_APP_SECRET, Version.LATEST);
+        JsonObject a= facebookClient.fetchObjects(Arrays.asList("me", "1382679095266585"), JsonObject.class, Parameter.with("fields","name,id,email,picture"));
+        return a.toString();
     }
 }
