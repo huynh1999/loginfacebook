@@ -2,6 +2,7 @@ package com.jwatgroupb.config;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.jwatgroupb.dto.MyUser;
 import com.restfb.DefaultFacebookClient;
 import com.restfb.FacebookClient;
 import com.restfb.Parameter;
@@ -53,7 +54,7 @@ public class LoginFB {
         boolean accountNonLocked = true;
         List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
         authorities.add(new SimpleGrantedAuthority("customer"));
-        UserDetails userDetail = new User(user.getName(), "", enabled, accountNonExpired, credentialsNonExpired,
+        UserDetails userDetail = new MyUser(user.getName(), "", enabled, accountNonExpired, credentialsNonExpired,
                 accountNonLocked, authorities);
         return userDetail;
     }
