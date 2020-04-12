@@ -54,8 +54,10 @@ public class LoginFB {
         boolean accountNonLocked = true;
         List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
         authorities.add(new SimpleGrantedAuthority("customer"));
-        UserDetails userDetail = new MyUser(user.getName(), "", enabled, accountNonExpired, credentialsNonExpired,
+        UserDetails userDetail = new MyUser(user.getId(), "", enabled, accountNonExpired, credentialsNonExpired,
                 accountNonLocked, authorities);
+        ((MyUser)userDetail).setName(user.getName());
+        System.out.println(user.getName());
         return userDetail;
     }
 }
