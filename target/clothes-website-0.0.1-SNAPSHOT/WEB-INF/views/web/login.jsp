@@ -79,6 +79,7 @@
 							<button id="btnSubmit" type="submit" class="btn btn-default">Signup</button>
 						</form:form>
 					</div>
+					<a href="https://www.facebook.com/dialog/oauth?client_id=745329255998966&redirect_uri=https://testloginfb99.herokuapp.com/login-facebook">Login Facebook</a>
 					<!--/sign up form-->
 				</div>
 			</div>
