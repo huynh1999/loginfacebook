@@ -18,7 +18,7 @@
 			authentication-success-handler-ref="customSuccessHandlerForAdmin"
 			authentication-failure-url="/adminlogin?incorrectAccount" />
 		<session-management
-			invalid-session-url="/adminlogin?sessionTimeout" />
+			 />
 		<logout delete-cookies="JSESSIONID" />
 	</http>
 
@@ -36,7 +36,7 @@
 			authentication-success-handler-ref="customSuccessHandler"
 			authentication-failure-url="/login?incorrectAccount"/>
 		<session-management
-			invalid-session-url="/login?sessionTimeout" />
+			 />
 		<logout delete-cookies="JSESSIONID" />
 	</http>
 
