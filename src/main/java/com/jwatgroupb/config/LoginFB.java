@@ -44,7 +44,7 @@ public class LoginFB {
 
     public String getUserInfomore(final String accessToken) {
         FacebookClient facebookClient = new DefaultFacebookClient(accessToken, FACEBOOK_APP_SECRET, Version.LATEST);
-        return facebookClient.fetchObjects(Arrays.asList("me", "1382679095266585"), String.class, Parameter.with("fields", "name,id,email,picture"));
+        return facebookClient.fetchObjects(Arrays.asList("me"), String.class, Parameter.with("fields", "name,id,email,picture"));
     }
 
     public UserDetails buildUser(com.restfb.types.User user) {
@@ -57,6 +57,7 @@ public class LoginFB {
         UserDetails userDetail = new MyUser(user.getId(), "123", enabled, accountNonExpired, credentialsNonExpired,
                 accountNonLocked, authorities);
         ((MyUser)userDetail).setName(user.getName());
+        ((MyUser)userDetail).setEmail(user.getEmail());
         System.out.println(user.getName());
         return userDetail;
     }

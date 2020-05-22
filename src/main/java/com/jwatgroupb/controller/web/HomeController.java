@@ -79,6 +79,8 @@ public class HomeController {
 		if(page==(totalPage)) {
 			page=totalPage-1;
 		};
+		System.out.println("Name:"+SecurityUtils.getPrincipal().getName());
+		System.out.println("Email"+SecurityUtils.getPrincipal().getEmail());
 		mav.addObject("totalPage", totalPage);
 		mav.addObject("page", page);
 		return mav;
