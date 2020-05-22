@@ -80,8 +80,14 @@ public class HomeController {
 			page=totalPage-1;
 		};
 		System.out.println("TEST");
-		System.out.println("Name:"+SecurityUtils.getPrincipal().getName());
-		System.out.println("Email"+SecurityUtils.getPrincipal().getEmail());
+		try {
+			System.out.println("Name:"+SecurityUtils.getPrincipal().getName());
+			System.out.println("Email"+SecurityUtils.getPrincipal().getEmail());
+		}
+		catch (Exception e){
+			System.out.println("Not Login now from HomeController");
+		}
+
 		mav.addObject("totalPage", totalPage);
 		mav.addObject("page", page);
 		return mav;
