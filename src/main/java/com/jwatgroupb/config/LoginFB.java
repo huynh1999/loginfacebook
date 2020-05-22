@@ -42,11 +42,6 @@ public class LoginFB {
         return facebookClient.fetchObject("me", com.restfb.types.User.class);
     }
 
-    public String getUserInfomore(final String accessToken) {
-        FacebookClient facebookClient = new DefaultFacebookClient(accessToken, FACEBOOK_APP_SECRET, Version.LATEST);
-        return facebookClient.fetchObjects(Arrays.asList("me"), String.class, Parameter.with("fields", "name,id,email,picture"));
-    }
-
     public UserDetails buildUser(com.restfb.types.User user) {
         boolean enabled = true;
         boolean accountNonExpired = true;

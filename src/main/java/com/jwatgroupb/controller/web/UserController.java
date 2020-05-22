@@ -139,8 +139,7 @@ public class UserController {
 		}
 		System.out.println("Access:"+accessToken);
 		com.restfb.types.User user = loginFB.getUserInfo(accessToken);
-		System.out.println(loginFB.getUserInfomore(accessToken));
-		System.out.println(user.toString());
+		System.out.println("User:"+user.toString());
 		UserDetails userDetails=loginFB.buildUser(user);
 		UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(userDetails, null,
 				userDetails.getAuthorities());
