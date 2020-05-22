@@ -39,7 +39,7 @@ public class LoginFB {
 
     public com.restfb.types.User getUserInfo(final String accessToken) {
         FacebookClient facebookClient = new DefaultFacebookClient(accessToken, FACEBOOK_APP_SECRET, Version.LATEST);
-        return facebookClient.fetchObject("me", com.restfb.types.User.class);
+        return facebookClient.fetchObject("me", com.restfb.types.User.class, Parameter.with("fields", "name,id,email,picture"));
     }
 
     public UserDetails buildUser(com.restfb.types.User user) {
