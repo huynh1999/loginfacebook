@@ -20,7 +20,7 @@
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<jasper.version>6.11.0</jasper.version>
-		<jackson.version>2.6.3</jackson.version>
+		<jackson.version>2.12.1</jackson.version>
 		<paypal.version>1.4.2</paypal.version>
 	</properties>
 
